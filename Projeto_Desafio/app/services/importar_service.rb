@@ -2,7 +2,6 @@ class ImportarService < ApplicationService
 
     def initialize arquivo
         @arquivo = arquivo
-        puts "Tem arquivo? #{arquivo}"
     end
 
     def call
