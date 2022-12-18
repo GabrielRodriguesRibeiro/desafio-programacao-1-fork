@@ -1,0 +1,51 @@
+<div id="<%= dom_id item %>">
+  <% if item.purchaser_name != nil %>
+    <p>
+      <strong>Purchaser name:</strong>
+      <%= item.purchaser_name %>
+    </p>
+  <% end %>
+
+  <% if item.item_description != nil %>
+    <p>
+      <strong>Item description:</strong>
+      <%= item.item_description %>
+    </p>
+  <% end %>
+
+  <% if item.item_price != nil %>
+    <p>
+      <strong>Item price:</strong>
+      <%= item.item_price %>
+    </p>
+  <% end %>
+
+  <% if item.purchase_count != nil %>
+    <p>
+      <strong>Purchase count:</strong>
+      <%= item.purchase_count %>
+    </p>
+  <% end %>
+
+  <% if item.merchant_address != nil %>
+    <p>
+      <strong>Merchant address:</strong>
+      <%= item.merchant_address %>
+    </p>
+  <% end %>
+
+  <% if item.merchant_name != nil %>
+    <p>
+      <strong>Merchant name:</strong>
+      <%= item.merchant_name %>
+    </p>
+  <% end %>
+
+  <% if item.gross_income != nil %>
+    <p>
+      <strong>Gross income:</strong>
+      <%= item.gross_income %>
+    </p>
+  <% end %>
+
+</div>
