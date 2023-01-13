@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @item %>
+
+<div>
+  <!-- <%= link_to "Editar", edit_item_path(@item) %> | -->
+  <%= link_to "Voltar", items_path %>
+  <br><br>
+  <%= button_to "Deletar", @item, method: :delete %>
+</div>

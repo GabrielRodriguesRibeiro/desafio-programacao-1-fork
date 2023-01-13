@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Itens</h1>
+
+<div id="items">
+  <% @items.each do |item| %>
+    <%= render item %>
+    <p>
+      <% if item.purchaser_name != nil %>
+        <%= link_to "Mostrar o Item", item %>
+      <% end %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "Novo Item", new_item_path %>
