@@ -1,10 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
+<h3 style="margin-left: 15px"> Item ID: <%= @item.id %> </h3>
+
 <%= render @item %>
 
 <div>
   <!-- <%= link_to "Editar", edit_item_path(@item) %> | -->
-  <%= link_to "Voltar", items_path %>
+  
+  <div style="margin-left: 20px; margin-top: 20px" class="btn btn-outline-primary">
+    <%= link_to "Voltar", items_path %>
+  </div>
   <br><br>
-  <%= button_to "Deletar", @item, method: :delete %>
+  <div style="margin-left: 20px">
+    <%= button_to "Deletar", @item, method: :delete %>
+  </div>
+
+  
 </div>

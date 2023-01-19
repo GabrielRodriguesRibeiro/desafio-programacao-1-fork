@@ -1,16 +1,26 @@
-<p style="color: green"><%= notice %></p>
+<h1 style="text-align:center">Itens</h1>
 
-<h1>Itens</h1>
+<% if notice %>
+<p class="alert alert-success"><%= notice %></p>
+<% end %>
 
-<div id="items">
+<% if alert %>
+<p class="alert alert-danger"><%= alert %></p>
+<% end %>
+
+<div class="card" id="items">
   <% @items.each do |item| %>
     <%= render item %>
     <p>
       <% if item.purchaser_name != nil %>
-        <%= link_to "Mostrar o Item", item %>
+      <div style="margin-right: 20px;">
+        <button style="float:right" type="button" class="btn btn-outline-secondary"> <%= link_to "Mostrar o Item", item %> </button>
+      </div>
       <% end %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "Novo Item", new_item_path %>
+<div style="margin-left: 20px; margin-bottom: 40px; margin-top: 20px">
+  <button type="button" class="btn btn-outline-primary"> <%= link_to "Importar Novos Itens", new_item_path %> </button>
+</div>

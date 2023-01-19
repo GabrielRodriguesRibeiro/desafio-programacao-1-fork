@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /items or /items.json
   def index
@@ -22,23 +23,13 @@ class ItemsController < ApplicationController
   # POST /items or /items.json
   def create
     
-    @response = ImportarService.call item_params[:arquivo]
+    @import_items = ImportarService.call item_params[:arquivo], current_user.id
 
-    unless @response
-        flash[:notice] = "Extensão inválida" 
-    else
-        flash[:notice] = "Dados importados com sucesso"
-    end
-
-    @item = Item.new(item_params)
-
-    respond_to do |format|
-      if @item.save
-        format.html { redirect_to item_url(@item), notice: "Itens adicionados." }
-        format.json { render :show, status: :created, location: @item }
+    respond_to do |format|      
+      if @import_items.empty?
+        format.html { redirect_to items_path, notice: "Dados importados com sucesso." }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+        format.html { redirect_to new_item_path, notice: @import_items.map{|a| a[1].join(' - ')} }
       end
     end
     
@@ -75,6 +66,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:purchaser_name, :item_description, :item_price, :purchase_count, :merchant_address, :merchant_name, :arquivo)
+      params.require(:item).permit(:purchaser_name, :item_description, :item_price, :purchase_count, :merchant_address, :merchant_name, :arquivo, :user_id)
     end
 end

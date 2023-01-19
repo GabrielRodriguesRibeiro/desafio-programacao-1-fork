@@ -1,16 +1,53 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProjetoDesafio</title>
+    <title>Projeto Desafio</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <style>
+      body {
+        text-align: center;
+      }
+    </style>
+
   </head>
 
   <body>
+    <p class="placeholder-glow">
+      <span class="placeholder col-12"></span>
+    </p>
+
     <%= yield %>
+
+    <p class="navbar-text float-right">
+      <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.email %></strong>.
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+    </p>
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/users/sign_up">Ideas</a>
+      </li>
+      ...
+    </ul>
+
+    <p class="placeholder-glow">
+      <span class="placeholder col-12"></span>
+    </p>
+
+    <div class="p-5 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+      Sislam - Tecnologia Ambiental e Urbanística - Copyright 2023 - Todos os direitos reservados
+    </div>
   </body>
 </html>

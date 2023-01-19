@@ -8,12 +8,56 @@ one:
   merchant_address: MyString
   merchant_name: MyString
   arquivo: MyString
+  gross_income: 20.0
+  user_id: 1
 
-two:
-  purchaser_name: MyString
-  item_description: MyString
-  item_price: 1.5
-  purchase_count: 1
-  merchant_address: MyString
-  merchant_name: MyString
+completo:
+  purchaser_name: João Silva
+  item_description: R$10 off R$20 of food
+  item_price: 10.0
+  purchase_count: 2
+  merchant_address: 987 Fake St
+  merchant_name: Bob's Pizza
   arquivo: MyString
+  gross_income: 20.0
+  user_id: 1
+
+incompleto:
+  purchaser_name: João Silva
+  item_description: R$10 off R$20 of food
+  item_price: 10.0
+  purchase_count: 
+  merchant_address: 987 Fake St
+  merchant_name: Bob's Pizza
+  arquivo: MyString
+  user_id: 1
+
+vazio:
+  purchaser_name:
+  item_description: 
+  item_price: 
+  purchase_count: 
+  merchant_address: 
+  merchant_name: 
+  arquivo:
+  user_id: 1
+
+valor_invalido:
+  purchaser_name: João Silva
+  item_description: R$10 off R$20 of food
+  item_price: -10.0
+  purchase_count: 2 
+  merchant_address: 987 Fake St
+  merchant_name: Bob's Pizza
+  arquivo: MyString
+  user_id: 1
+
+valor_negativo:
+  purchaser_name: João Silva
+  item_description: R$10 off R$20 of food
+  item_price: 10.0
+  purchase_count: -2 
+  merchant_address: 987 Fake St
+  merchant_name: Bob's Pizza
+  arquivo: MyString
+  user_id: 1
