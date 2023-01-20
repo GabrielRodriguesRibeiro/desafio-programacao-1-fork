@@ -8,6 +8,10 @@
 <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
+<br>
+<%= will_paginate @posts %>
+<br>
+
 <div class="card" id="items">
   <% @items.each do |item| %>
     <%= render item %>
@@ -21,6 +25,10 @@
   <% end %>
 </div>
 
-<div style="margin-left: 20px; margin-bottom: 40px; margin-top: 20px">
+<br>
+<%= will_paginate @posts %>
+<br>
+
+<div>
   <button type="button" class="btn btn-outline-primary"> <%= link_to "Importar Novos Itens", new_item_path %> </button>
 </div>

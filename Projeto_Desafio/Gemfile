@@ -27,6 +27,10 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem 'jquery-rails'
+
+gem 'turbolinks'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -54,8 +58,14 @@ gem 'devise_token_auth'
 # Omniauth
 gem 'omniauth'
 
-# simplecov
+# Simplecov
 gem 'simplecov', require: false, group: :test
+
+# Will Paginate
+gem 'will_paginate', '~> 3.3'
+
+# Bootstrap-will_paginate
+gem 'bootstrap-will_paginate'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
