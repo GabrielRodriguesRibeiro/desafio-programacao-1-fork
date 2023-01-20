@@ -3,9 +3,8 @@ require "test_helper"
 class ItemServicesTest < ActionDispatch::IntegrationTest
 
     test "Criacao de itens" do   
-        #assert_changes("Item.count", from: 11, to: 11) do
         assert_changes("Item.count") do
-        ImportarService.call fixture_file_upload('example_input.tab'), users(:one).id          
+            ImportarService.call fixture_file_upload('example_input.tab'), users(:one).id          
         end
     end
 

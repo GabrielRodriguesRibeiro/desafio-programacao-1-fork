@@ -9,7 +9,7 @@
 <% end %>
 
 <br>
-<%= will_paginate @posts %>
+<%= paginate @items %>
 <br>
 
 <div class="card" id="items">
@@ -18,7 +18,7 @@
     <p>
       <% if item.purchaser_name != nil %>
       <div style="margin-right: 20px;">
-        <button style="float:right" type="button" class="btn btn-outline-secondary"> <%= link_to "Mostrar o Item", item %> </button>
+        <button style="float:right" type="button" class="btn btn-outline-light"> <%= link_to "Mostrar o Item", item %> </button>
       </div>
       <% end %>
     </p>
@@ -26,9 +26,9 @@
 </div>
 
 <br>
-<%= will_paginate @posts %>
+<%= paginate @items %>
 <br>
 
 <div>
-  <button type="button" class="btn btn-outline-primary"> <%= link_to "Importar Novos Itens", new_item_path %> </button>
+  <button type="button" class="btn btn-outline-light"> <%= link_to "Importar Novos Itens", new_item_path %> </button>
 </div>

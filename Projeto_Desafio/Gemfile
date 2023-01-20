@@ -62,10 +62,7 @@ gem 'omniauth'
 gem 'simplecov', require: false, group: :test
 
 # Will Paginate
-gem 'will_paginate', '~> 3.3'
-
-# Bootstrap-will_paginate
-gem 'bootstrap-will_paginate'
+gem 'kaminari'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
