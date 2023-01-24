@@ -27,4 +27,9 @@ class ItemTest < ActiveSupport::TestCase
     assert_not item.purchase_count >= 0
   end
 
+  test 'Nome do comprador não pode ser maior que 60 caracteres' do
+    item = items(:completo)
+    assert_not item.purchaser_name.length > 60
+  end 
+
 end
