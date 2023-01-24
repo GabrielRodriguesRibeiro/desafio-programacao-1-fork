@@ -15,9 +15,15 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
   # end
 
   test "Deve excluir o item" do
-
     assert_difference("Item.count", 0) do
       delete item_url(@item)
     end
   end
+
+  test "ID do usuário não pode ser nulo" do
+    assert_not_nil @item.user_id
+  end  
+
+  
+
 end

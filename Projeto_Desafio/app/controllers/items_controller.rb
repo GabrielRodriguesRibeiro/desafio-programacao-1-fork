@@ -4,7 +4,8 @@ class ItemsController < ApplicationController
 
   # GET /items or /items.json
   def index
-    @items = Item.order(:purchaser_name).page(params[:page]).per(5)
+    get_filtered_items
+    @items = @items.order(:purchaser_name).page(params[:page]).per(5)
   end
 
   # GET /items/1 or /items/1.json
@@ -62,6 +63,16 @@ class ItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_item
       @item = Item.find(params[:id])
+    end
+
+    def get_filtered_items
+      @items = Item.all
+      return if params[:q].nil?
+        
+      params[:q].each do |k,v|
+        @items = @items.where("#{k} LIKE ?", "%#{v}%")
+      end
+    
     end
 
     # Only allow a list of trusted parameters through.

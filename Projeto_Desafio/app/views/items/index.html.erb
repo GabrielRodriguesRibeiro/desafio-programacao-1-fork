@@ -1,18 +1,29 @@
 <h1 style="text-align:center">Itens</h1>
 
 <% if notice %>
-<p class="alert alert-success"><%= notice %></p>
+  <p class="alert alert-success"><%= notice %></p>
 <% end %>
 
 <% if alert %>
-<p class="alert alert-danger"><%= alert %></p>
+  <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
-<br>
-<%= paginate @items %>
-<br>
+
+<div style="float:right; margin-left: 15px; margin-right: 15px">
+  <%= form_with url: items_path, method: "get" do |form| %>
+    <%= form.label :q, "Pesquisar Por:" %>    
+    <%= form.text_field "q[purchaser_name]" %>
+    <%= form.submit "Pesquisar" %>
+  <% end %>
+  
+</div>
 
 <div class="card" id="items">
+
+  <br>
+    <%= paginate @items %>
+  <br>
+
   <% @items.each do |item| %>
     <%= render item %>
     <p>

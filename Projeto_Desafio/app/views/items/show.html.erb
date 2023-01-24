@@ -1,5 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
+<% binding.pry %>
+
 <h3 style="margin-left: 15px"> Item ID: <%= @item.id %> </h3>
 
 <%= render @item %>
@@ -7,7 +9,7 @@
 <div>
   <!-- <%= link_to "Editar", edit_item_path(@item) %> | -->
   
-  <div style="margin-left: 20px; margin-top: 20px" class="btn btn-outline-primary">
+  <div style="margin-left: 20px; margin-top: 20px" class="btn btn-outline-light">
     <%= link_to "Voltar", items_path %>
   </div>
   <br><br>
