@@ -66,9 +66,9 @@ class ItemsController < ApplicationController
     end
 
     def get_filtered_items
-      @items = Item.all
+      #@items = Item.all
+      @items = Item.where(user_id: current_user.id)  
       return if params[:q].nil?
-        
       params[:q].each do |k,v|
         @items = @items.where("#{k} LIKE ?", "%#{v}%")
       end
