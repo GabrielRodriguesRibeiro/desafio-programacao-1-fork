@@ -4,16 +4,14 @@
 
 <%= render @item %>
 
-<div>
-  <!-- <%= link_to "Editar", edit_item_path(@item) %> | -->
-  
-  <div style="margin-left: 20px; margin-top: 20px" class="btn btn-outline-light">
-    <%= link_to "Voltar", items_path %>
+<div class="card">
+  <br>
+  <div class="d-flex justify-content-start" style="margin-left: 15px;"> 
+    <%= link_to "Voltar", items_path, :class => "btn btn-secondary" %>
+    <div class="gap" style="margin-left: 10px;">
+      <%= button_to "Deletar", @item, method: :delete, :class => "btn btn-danger" %>
+      <br>
+    </div>
   </div>
-  <br><br>
-  <div style="margin-left: 20px">
-    <%= button_to "Deletar", @item, method: :delete %>
-  </div>
-
-  
+  <br>
 </div>

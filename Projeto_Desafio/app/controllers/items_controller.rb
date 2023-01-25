@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # GET /items or /items.json
   def index
     get_filtered_items
-    @items = @items.order(:purchaser_name).page(params[:page]).per(5)
+    @items = @items.order(:purchaser_name).page(params[:page]).per(7)
   end
 
   # GET /items/1 or /items/1.json

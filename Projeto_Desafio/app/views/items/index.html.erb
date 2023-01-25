@@ -1,5 +1,7 @@
 <h1 style="text-align:center">Itens</h1>
 
+<hr class="hr hr-blurry" />
+
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
@@ -8,37 +10,39 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
-
-<div style="float:right; margin-left: 15px; margin-right: 15px">
-  <%= form_with url: items_path, method: "get" do |form| %>
-    <%= form.label :q, "Pesquisar Por:" %>    
-    <%= form.text_field "q[purchaser_name]" %>
-    <%= form.submit "Pesquisar" %>
-  <% end %>
+<br>
+<div class="d-flex justify-content-center">
+    <%= paginate @items %>
 </div>
+<br>
 
 <div class="card" id="items">
 
   <br>
-    <%= paginate @items %>
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <div class="container d-flex justify-content-end">
+      <%= form_with url: items_path, method: "get" do |form| %> 
+        <%= form.text_field "q[purchaser_name]", :placeholder => "Digite aqui..." %>
+        <%= form.submit "Pesquisar", :class => "btn btn-outline-success my-2 my-sm-0" %>
+      <% end %>
+    </div>
+  </nav>
   <br>
 
   <% @items.each do |item| %>
+  <div class="container">
     <%= render item %>
-    <p>
-      <% if item.purchaser_name != nil %>
-      <div style="margin-right: 20px;">
-        <button style="float:right" type="button" class="btn btn-outline-light"> <%= link_to "Mostrar o Item", item %> </button>
-      </div>
-      <% end %>
-    </p>
+    <%= link_to "Consultar Item", item, :class => "btn btn-secondary" %>
+  </div>
   <% end %>
+
+  <div style="text-align:center; margin-bottom: 15px;">
+    <%= link_to "Importar Novos Itens", new_item_path, :class => "btn btn-success" %>
+  </div>
 </div>
 
 <br>
-<%= paginate @items %>
-<br>
-
-<div>
-  <button type="button" class="btn btn-outline-light"> <%= link_to "Importar Novos Itens", new_item_path %> </button>
+<div class="d-flex justify-content-center">
+  <%= paginate @items %>
 </div>
+<br>

@@ -1,83 +1,29 @@
 <div id="<%= dom_id item %>">
-  <ol class="list-group list-group-numbered">
 
-    <!-- Nome do Comprador -->
-    <% if item.purchaser_name != nil %>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">Nome do comprador: </div>
-          <p>
-            <%= item.purchaser_name %>
-          </p>
-      </div>
-    </li>
-    <% end %>
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nome do Comprador</th>
+        <th>Descrição do Item</th>
+        <th>Endereço do Comprador</th>
+        <th>Nome do Comprador</th>
+        <th>Preço do Item (R$)</th>
+        <th>Renda Bruta (R$)</th> 
+        <th>Quantidade de Item</th>  
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= item.purchaser_name %></td>
+        <td><%= item.item_description %></td>
+        <td><%= item.merchant_address %></td>
+        <td><%= item.merchant_name %></td>
+        <td><%= item.item_price %></td>
+        <td><%= item.gross_income %></td>
+        <td><%= item.purchase_count %></td>
+      </tr>
+    </tbody>
+  </table>
 
-    <!-- Descrição do Item -->
-    <% if item.item_description != nil %>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">Descrição do Item: </div>
-          <p>
-            <%= item.item_description %>
-          </p>
-      </div>
-    </li>
-    <% end %>
-
-    <!-- Endereço do Comprador -->
-    <% if item.merchant_address != nil %>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">Endereço do Comprador: </div>
-          <p>
-            <%= item.merchant_address %>
-          </p>
-      </div>
-    </li>
-    <% end %>
-
-    <!-- Nome do Comprador -->
-    <% if item.merchant_name != nil %>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">Nome do Comprador: </div>
-          <p>
-            <%= item.merchant_name %>
-          </p>
-      </div>
-    </li>
-    <% end %>
-
-    <!-- Preço do Item -->
-    <% if item.item_price != nil %>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">Preço do Item (R$): </div>
-      </div>
-      <span class="badge bg-primary rounded-pill"> <%= item.item_price %> </span>
-    </li>    
-    <% end %>
-
-    <!-- Renda Bruta -->
-    <% if item.gross_income != nil %>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">Renda Bruta (R$): </div>
-      </div>
-      <span class="badge bg-primary rounded-pill"> <%= item.gross_income %> </span>
-    </li>
-    <% end %>
-
-    <!-- Quantidade de Item -->
-    <% if item.purchase_count != nil %>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">Quantidade de Item: </div>
-      </div>
-      <span class="badge bg-primary rounded-pill"> <%= item.purchase_count %> </span>
-    </li>
-    <% end %>
-
-  </ol>
 </div>
