@@ -9,13 +9,13 @@ class ItemsControllerTest < ActionController::TestCase
   end
  
   test 'Deve mostrar o item' do
-    get item_url(@item)
+    get :index, params: { q: { purchaser_name: @item.purchaser_name } } 
     assert(@item)
   end
 
   test 'Deve excluir o item' do
     assert_difference("Item.count", 0) do
-      delete item_url(@item)
+      delete :index, params: { q: { purchaser_name: @item.purchaser_name } } 
     end
   end
 
@@ -23,11 +23,10 @@ class ItemsControllerTest < ActionController::TestCase
     assert_not_nil @item.user_id
   end  
 
-  # test 'Teste de filtro' do
-  #   get :index, params: { q: { purchaser_name: @item.purchaser_name } } 
-  #   assert_difference("Item.count", 0) do
-  #     get item_url(@item)
-  #   end
-  # end
+  test 'Teste de filtro' do
+    assert_difference("Item.count", 0) do
+      get :index, params: { q: { purchaser_name: @item.purchaser_name } } 
+    end
+  end
 
 end

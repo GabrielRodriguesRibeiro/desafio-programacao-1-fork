@@ -20,7 +20,7 @@ completo:
   merchant_name: Bob's Pizza
   arquivo: MyString
   gross_income: 20.0
-  user_id: 2
+  user_id: 1
 
 incompleto:
   purchaser_name: João Silva
